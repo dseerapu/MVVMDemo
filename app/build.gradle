@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "dharma.github.io.mvvmsample"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Unit test dependencies
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.testVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.testExpressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.testExpressoVersion"
+
+    // Android Support Library dependencies
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    androidTestImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.gsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.httpLoggingInterceptorVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.httpLoggingInterceptorVersion"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.httpUrlConnection"
+
+    // RxJava / RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+
+    // Android Architecture Components
+    implementation "android.arch.lifecycle:extensions:$rootProject.architectureComponentVersion"
+    implementation "android.arch.lifecycle:common-java8:$rootProject.architectureComponentVersion"
+    implementation "android.arch.lifecycle:reactivestreams:$rootProject.architectureComponentVersion"
+
+    //Lottie Animation view
+    implementation "com.airbnb.android:lottie:$rootProject.lotteAndroidVersion"
+
+    //Calligraphy for custom fonts
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // Room SQLite for data persistence
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.roomVersion"
+
+    // Chrome custom tab
+    implementation "com.android.support:customtabs:$rootProject.supportLibraryVersion"
+
+    // Mock Web Server
+    implementation "com.squareup.okhttp3:mockwebserver:$rootProject.mockWebServerVersion"
+
+    // Mockito for JUnit Testing
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+
+
+}
