@@ -1,6 +1,7 @@
 package dharma.github.io.mvvmsample.di.builder;
 
 import dagger.Module;
+import dagger.android.ContributesAndroidInjector;
 import dharma.github.io.mvvmsample.view.MainActivity;
 
 /**
@@ -12,10 +13,9 @@ import dharma.github.io.mvvmsample.view.MainActivity;
 @Module
 public abstract class ActivityBuilderModule {
 
-    //Hint : Write all activities here
-
     @SuppressWarnings("unused")
-//    @ContributesAndroidInjector(modules = )
+    @ContributesAndroidInjector(modules = FragmentBuilderModule.class)
     abstract MainActivity mainActivity();
+
 
 }

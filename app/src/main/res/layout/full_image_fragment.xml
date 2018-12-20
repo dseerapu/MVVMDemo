@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="galleryItem"
+            type="String" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        style="@style/match_match"
+        app:cardBackgroundColor="@color/browser_actions_bg_grey"
+        app:cardElevation="@dimen/dimen_5"
+        app:cardUseCompatPadding="true">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layout_item"
+            style="@style/match_match"
+            android:layout_margin="@dimen/dimen_5"
+            android:padding="@dimen/dimen_2">
+
+            <ImageView
+                android:id="@+id/imageView"
+                style="@style/zero_zero"
+                android:src="@mipmap/ic_launcher"
+                app:imageUrl="@{galleryItem}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

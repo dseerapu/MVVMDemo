@@ -13,6 +13,7 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(GalleryViewModel.class)
+    @SuppressWarnings("unused")
     abstract ViewModel bindsGalleryViewModel(GalleryViewModel galleryViewModel);
 
 

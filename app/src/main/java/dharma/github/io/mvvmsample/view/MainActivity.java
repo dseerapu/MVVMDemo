@@ -1,6 +1,7 @@
 package dharma.github.io.mvvmsample.view;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import dharma.github.io.mvvmsample.R;
 import dharma.github.io.mvvmsample.databinding.ActivityMainBinding;
@@ -19,6 +20,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        FragmentUtils.replaceFragment(this, MainFragment.newInstance(), R.id.container, false, TRANSITION_NONE);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return false;
     }
 }

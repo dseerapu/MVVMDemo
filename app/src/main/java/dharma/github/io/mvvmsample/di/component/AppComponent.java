@@ -12,11 +12,7 @@ import dharma.github.io.mvvmsample.di.builder.ActivityBuilderModule;
 import dharma.github.io.mvvmsample.di.module.AppModule;
 
 
-@Singleton
-@Component(modules = {
-        AppModule.class,
-        AndroidInjectionModule.class,
-        ActivityBuilderModule.class})
+
 /**
  * Developed by Dharma Sai Seerapu on 18th Dec 2018
  * <p>
@@ -26,6 +22,11 @@ import dharma.github.io.mvvmsample.di.module.AppModule;
  * Above modules provides Dependencies to the particular activities declared in ActivityBuilderModule {@link ActivityBuilderModule}
  * </p>
  */
+@Singleton
+@Component(modules = {
+        AppModule.class,
+        AndroidInjectionModule.class,
+        ActivityBuilderModule.class})
 public interface AppComponent {
 
     @Component.Builder
