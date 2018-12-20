@@ -6,6 +6,9 @@ import android.view.MenuItem;
 import dharma.github.io.mvvmsample.R;
 import dharma.github.io.mvvmsample.databinding.ActivityMainBinding;
 import dharma.github.io.mvvmsample.view.base.BaseActivity;
+import dharma.github.io.mvvmsample.view.utils.FragmentUtils;
+
+import static dharma.github.io.mvvmsample.view.utils.FragmentUtils.TRANSITION_NONE;
 
 /**
  * MainActivity
