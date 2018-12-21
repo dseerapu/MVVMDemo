@@ -8,6 +8,5 @@ MVVM Demo
 * MVVM Pattern
 * Retrofit2 with Okhttp
 * Dynamic Data Binding
-* View Holder Pattern
+* Builder & View Holder Pattern
 * SOLID Principles
-* Builder Pattern
