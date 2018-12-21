@@ -50,13 +50,11 @@ ImageLoader.createTask().web("your image link")
          .callback(new ImageLoader.OnResultListener() {
              @Override
              public void onFailed() {
-                 //your job
-                 Toast.makeText(MainActivity.this,"onFailed",Toast.LENGTH_SHORT).show();
+                 //Failed response
              }
              @Override
              public void onSuccess(Bitmap bitmap) {
-                 //your job
-                 Toast.makeText(MainActivity.this,"onSuccess",Toast.LENGTH_SHORT).show();
+                 //Success response
              }
          })
          .into(imageView).start();
