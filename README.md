@@ -1,5 +1,6 @@
 # MVVMDemo
-MVVM Demo
+
+Base Architecture contains BaseFragment, BaseActivity, BaseAdapter & EndlessBaseAdapter
 
 
 ## Programming Practices Followed
