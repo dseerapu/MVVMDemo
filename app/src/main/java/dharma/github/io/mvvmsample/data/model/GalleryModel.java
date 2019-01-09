@@ -1,15 +1,9 @@
 package dharma.github.io.mvvmsample.data.model;
 
-import android.databinding.BindingAdapter;
-import android.widget.ImageView;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-import dharma.github.io.imageloader.ImageLoader;
-import dharma.github.io.mvvmsample.R;
 
 /**
  * Developed by Dharma Sai Seerapu on 18th Dec 2018
@@ -147,12 +141,6 @@ public class GalleryModel {
 
     public void setLinks(GalleryModelLinks links) {
         this.links = links;
-    }
-
-    @BindingAdapter("imageUrl")
-    public static void setImage(ImageView image, String imageUrl){
-        ImageLoader.createTask().web(imageUrl).loadingRes(R.drawable.ic_empty)
-                .failedRes(R.drawable.ic_error).into(image).start();
     }
 
 }

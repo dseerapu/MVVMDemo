@@ -75,4 +75,7 @@ ext{
     //Mockito version
     mockitoVersion ='2.22.0'
 
+    //Glide
+    glideVersion = '4.8.0'
+
 }
