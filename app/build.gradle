@@ -1,3 +1,4 @@
+
 apply plugin: 'com.android.application'
 
 android {
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -91,4 +93,13 @@ dependencies {
     //Glide : for Image loading
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    //stetho for network,ui,database inspection
+    implementation "com.facebook.stetho:stetho:$rootProject.stethoVersion"
+
+    // multidex
+    implementation "com.android.support:multidex:$rootProject.multiDexVersion"
 }

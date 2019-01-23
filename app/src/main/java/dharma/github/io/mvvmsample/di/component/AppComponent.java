@@ -8,9 +8,11 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import dharma.github.io.mvvmsample.MVVMSampleApp;
+import dharma.github.io.mvvmsample.data.api.DataManager;
+import dharma.github.io.mvvmsample.di.builder.BroadcastReceiverBuilder;
 import dharma.github.io.mvvmsample.di.builder.ActivityBuilderModule;
+import dharma.github.io.mvvmsample.di.builder.ServiceBuilderModule;
 import dharma.github.io.mvvmsample.di.module.AppModule;
-
 
 
 /**
@@ -26,7 +28,9 @@ import dharma.github.io.mvvmsample.di.module.AppModule;
 @Component(modules = {
         AppModule.class,
         AndroidInjectionModule.class,
-        ActivityBuilderModule.class})
+        ActivityBuilderModule.class,
+        ServiceBuilderModule.class,
+        BroadcastReceiverBuilder.class})
 public interface AppComponent {
 
     @Component.Builder
@@ -39,4 +43,6 @@ public interface AppComponent {
     }
 
     void inject(MVVMSampleApp mvvmSampleApp);
+
+    DataManager getDataManager();
 }

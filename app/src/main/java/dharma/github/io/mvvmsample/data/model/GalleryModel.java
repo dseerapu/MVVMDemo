@@ -1,17 +1,31 @@
 package dharma.github.io.mvvmsample.data.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import dharma.github.io.mvvmsample.constants.Constants;
 
 /**
  * Developed by Dharma Sai Seerapu on 18th Dec 2018
  */
-public class GalleryModel {
+@Entity(tableName = Constants.DatabaseTables.GALLERY_MODEL)
+public class GalleryModel implements Cloneable, Parcelable {
 
+    public GalleryModel(){
+        //do nothing
+    }
+
+    @PrimaryKey
     @SerializedName("id")
     @Expose
+    @NonNull
     private String id;
     @SerializedName("created_at")
     @Expose
@@ -32,20 +46,44 @@ public class GalleryModel {
     @Expose
     private Boolean likedByUser;
     @SerializedName("user")
+    @Ignore
     @Expose
     private User user;
-    @SerializedName("current_user_collections")
-    @Expose
-    private List<Object> currentUserCollections = null;
-    @SerializedName("urls")
-    @Expose
-    private Urls urls;
-    @SerializedName("categories")
-    @Expose
-    private List<Category> categories = null;
-    @SerializedName("links")
-    @Expose
-    private GalleryModelLinks links;
+
+    protected GalleryModel(Parcel in) {
+        id = in.readString();
+        createdAt = in.readString();
+        if (in.readByte() == 0) {
+            width = null;
+        } else {
+            width = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            height = null;
+        } else {
+            height = in.readInt();
+        }
+        color = in.readString();
+        if (in.readByte() == 0) {
+            likes = null;
+        } else {
+            likes = in.readInt();
+        }
+        byte tmpLikedByUser = in.readByte();
+        likedByUser = tmpLikedByUser == 0 ? null : tmpLikedByUser == 1;
+    }
+
+    public static final Creator<GalleryModel> CREATOR = new Creator<GalleryModel>() {
+        @Override
+        public GalleryModel createFromParcel(Parcel in) {
+            return new GalleryModel(in);
+        }
+
+        @Override
+        public GalleryModel[] newArray(int size) {
+            return new GalleryModel[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -111,36 +149,35 @@ public class GalleryModel {
         this.user = user;
     }
 
-    public List<Object> getCurrentUserCollections() {
-        return currentUserCollections;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setCurrentUserCollections(List<Object> currentUserCollections) {
-        this.currentUserCollections = currentUserCollections;
-    }
-
-    public Urls getUrls() {
-        return urls;
-    }
-
-    public void setUrls(Urls urls) {
-        this.urls = urls;
-    }
-
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
-
-    public GalleryModelLinks getLinks() {
-        return links;
-    }
-
-    public void setLinks(GalleryModelLinks links) {
-        this.links = links;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(createdAt);
+        if (width == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(width);
+        }
+        if (height == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(height);
+        }
+        dest.writeString(color);
+        if (likes == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(likes);
+        }
+        dest.writeByte((byte) (likedByUser == null ? 0 : likedByUser ? 1 : 2));
     }
 
 }

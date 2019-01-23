@@ -1,4 +1,4 @@
-package dharma.github.io.mvvmsample.view;
+package dharma.github.io.mvvmsample.view.gallery;
 
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
@@ -8,15 +8,20 @@ import android.view.ViewGroup;
 
 import dharma.github.io.mvvmsample.R;
 import dharma.github.io.mvvmsample.data.model.GalleryModel;
+import dharma.github.io.mvvmsample.data.model.User;
 import dharma.github.io.mvvmsample.databinding.GalleryItemBinding;
 import dharma.github.io.mvvmsample.view.base.EndlessItemsBaseAdapter;
 import dharma.github.io.mvvmsample.view.utils.OnItemClick;
 
-public class GalleryAdapter extends EndlessItemsBaseAdapter<GalleryAdapter.GalleryViewHolder, GalleryModel> {
+public class GalleryAdapter extends EndlessItemsBaseAdapter<GalleryAdapter.GalleryViewHolder, User> {
 
-    private OnItemClick<GalleryModel> onItemClick;
+    private OnItemClick<User> onItemClick;
 
-    public GalleryAdapter(OnItemClick<GalleryModel> onItemClick) {
+    public GalleryAdapter() {
+        //do nothing
+    }
+
+    public void setCallback(OnItemClick<User> onItemClick) {
         this.onItemClick = onItemClick;
     }
 
@@ -30,7 +35,7 @@ public class GalleryAdapter extends EndlessItemsBaseAdapter<GalleryAdapter.Galle
 
     @Override
     public void onBindDataViewHolder(GalleryViewHolder holder, int position) {
-        GalleryModel galleryModel = getItem(position);
+        User galleryModel = getItem(position);
         if (galleryModel != null) {
             holder.bindItem(galleryModel, onItemClick);
         }
@@ -55,10 +60,10 @@ public class GalleryAdapter extends EndlessItemsBaseAdapter<GalleryAdapter.Galle
             this.binding = binding;
         }
 
-        public void bindItem(GalleryModel galleryModel, OnItemClick<GalleryModel> onItemClick) {
-            binding.setGalleryItem(galleryModel);
+        public void bindItem(User user, OnItemClick<User> onItemClick) {
+            binding.setUserItem(user);
 
-            binding.layoutItem.setOnClickListener(v -> onItemClick.onItemClicked(galleryModel));
+            binding.layoutItem.setOnClickListener(v -> onItemClick.onItemClicked(user));
         }
     }
 }

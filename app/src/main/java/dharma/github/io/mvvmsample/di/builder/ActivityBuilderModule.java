@@ -2,7 +2,10 @@ package dharma.github.io.mvvmsample.di.builder;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import dharma.github.io.mvvmsample.view.MainActivity;
+import dharma.github.io.mvvmsample.view.main.MainActivity;
+import dharma.github.io.mvvmsample.view.fullimage.FullImageFragmentProvider;
+import dharma.github.io.mvvmsample.view.gallery.GalleryFragmentProvider;
+import dharma.github.io.mvvmsample.view.main.MainActivityModule;
 
 /**
  * Developed by Dharma Sai Seerapu on 18th Dec 2018
@@ -13,9 +16,14 @@ import dharma.github.io.mvvmsample.view.MainActivity;
 @Module
 public abstract class ActivityBuilderModule {
 
-    @SuppressWarnings("unused")
-    @ContributesAndroidInjector(modules = FragmentBuilderModule.class)
-    abstract MainActivity mainActivity();
+    //Note: Define All your activities and their corresponding Modules
 
+    @SuppressWarnings("unused")
+    @ContributesAndroidInjector(modules = {
+            MainActivityModule.class,
+            GalleryFragmentProvider.class,
+            FullImageFragmentProvider.class
+    })
+    abstract MainActivity mainActivity();
 
 }

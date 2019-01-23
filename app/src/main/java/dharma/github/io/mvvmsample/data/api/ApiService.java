@@ -1,8 +1,9 @@
-package dharma.github.io.mvvmsample.data;
+package dharma.github.io.mvvmsample.data.api;
 
 import java.util.List;
 
 import dharma.github.io.mvvmsample.data.model.GalleryModel;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.http.GET;
 
@@ -14,5 +15,5 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET("raw/wgkJgazE")
-    Single<List<GalleryModel>> getPicturesList();
+    Observable<List<GalleryModel>> getPicturesList();
 }

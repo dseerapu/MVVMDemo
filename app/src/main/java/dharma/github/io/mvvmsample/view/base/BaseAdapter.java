@@ -8,13 +8,13 @@ import java.util.List;
  * Base Adapter for all the Adapter in this application {@link dharma.github.io.mvvmsample.MVVMSampleApp}
  *
  * @param <T>
- * @param <D>
+ * @param <Item>
  */
-public abstract class BaseAdapter<T extends RecyclerView.ViewHolder, D> extends RecyclerView.Adapter<T> {
+public abstract class BaseAdapter<T extends RecyclerView.ViewHolder, Item> extends RecyclerView.Adapter<T> {
 
-    public List<D> listItems;
+    public List<Item> listItems;
 
-    public abstract void addInitialData(List<D> data);
+    public abstract void addInitialData(List<Item> data);
 
-    public abstract void addNewData(List<D> newData);
+    public abstract void addNewData(List<Item> newData);
 }
