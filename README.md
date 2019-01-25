@@ -18,3 +18,6 @@ Architecture I have followed:
 * **[LiveData](https://developer.android.com/topic/libraries/architecture/livedata)** :   A observable stream of data your Activities & Fragments can react to
 * **[Navigation](https://developer.android.com/topic/libraries/architecture/navigation/)** :  Define in-app navigation stacks in a single, concise testable file
 * **[Paging](https://developer.android.com/topic/libraries/architecture/paging/)** :  Paginate loading data from data sources
+* **[Room](https://developer.android.com/topic/libraries/architecture/room)** :  An SQLlite ORM to handle database management in your apps
+* **[ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel)** :  Handle data effectively around lifecycle changes of Android components
+* **[Worker Manager](https://developer.android.com/topic/libraries/architecture/paging/)** :  Run parameterized background tasks efficiently
