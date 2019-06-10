@@ -8,13 +8,15 @@ Base Architecture contains BaseFragment, BaseActivity, BaseAdapter & EndlessBase
 
 
 ## Programming Practices Followed
-* Android Architectural Components from Google
+* **[Android Architectural Components from Google (JetPack)](https://developer.android.com/jetpack)**
+* **[AppCompat, CardView, RecyclerView an DesignLibrary](http://developer.android.com/intl/es/tools/support-library/index.html)**
 * **Dagger 2 for Dependency Injection** : Dependency providing classes using Dagger2.
+* **[RxJava2](https://github.com/ReactiveX/RxJava)**: a library for composing asynchronous and event-based programs by using observable sequences.
+* **[Retrofit2 with Okhttp](http://square.github.io/retrofit/)** : For network calls
+* **[Dynamic Data Binding](https://developer.android.com/topic/libraries/data-binding/)** : bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically
 * **MVVM Pattern**
-* **Retrofit2 with Okhttp** : For network calls
-* **Dynamic Data Binding** : bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically
-* Builder, View Holder & Repository Patterns
-* SOLID Principles
+* **Builder, View Holder & Repository Patterns**
+* **SOLID Principles**
 
 Architecture I have followed (introduced by Google):
 * **[Data Binding](https://developer.android.com/topic/libraries/data-binding/)** :  Cut down on findViewByIds and make data observing / reactive UI elements and bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically
